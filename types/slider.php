@@ -1,0 +1,390 @@
+<?php
+/**
+ * @package Tally Types
+ *
+ * Register custom Post Type
+**/
+
+add_action( 'init', 'tallytypes_register_postType__slider' );
+function tallytypes_register_postType__slider() {
+	
+	$labels = array(
+		'name'               => 'Slider',
+		'singular_name'      => 'Slider',
+		'menu_name'          => 'Sliders',
+		'name_admin_bar'     => 'Slider',
+		'add_new'            => 'Add New Slider',
+		'add_new_item'       => 'Add New Slider',
+		'new_item'           => 'New Slider',
+		'edit_item'          => 'Edit Slider',
+		'view_item'          => 'View Slider',
+		'all_items'          => 'Sliders',
+		'search_items'       => 'Search Sliders',
+		'parent_item_colon'  => 'Parent Sliders:',
+		'not_found'          => 'No Sliders found.',
+		'not_found_in_trash' => 'No Sliders found in Trash.',
+	);
+
+	$args = array(
+		'labels'             => apply_filters('tallytypes_slider_labels', $labels),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => true,
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 101 ,
+		'menu_icon'			 => TALLYTYPES_URL.'assets/images/slider-icon.svg',
+		'supports'           => array( 'title')
+	);
+
+	register_post_type( 'tt_slider', $args );
+}
+
+
+/*	Register Metabox
+--------------------------------------*/
+$mb_fields = array();
+$mb_fields[] = array(
+	'id' => 'slider_items_tt',
+	'type' => 'group',
+	'title' => 'Slider Items',
+	'des' => '',
+	'class' => '',
+	'value' => '',
+	'choices' => '',
+	'sanitize' => '',
+	'items' => array(
+		array(
+			'id' => 'image',
+			'type' => 'image_upload',
+			'title' => 'Image',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'wp_kses',
+		),
+		array(
+			'id' => 'content',
+			'type' => 'textarea',
+			'title' => 'Content',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'wp_kses',
+		),
+		array(
+			'id' => 'button_text',
+			'type' => 'text',
+			'title' => 'Button Text',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'wp_kses',
+		),
+		array(
+			'id' => 'button_link',
+			'type' => 'text',
+			'title' => 'Button Link',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'wp_kses',
+		),
+		array(
+			'id' => 'button_text2',
+			'type' => 'text',
+			'title' => 'Button 2 Text',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'wp_kses',
+		),
+		array(
+			'id' => 'button_link2',
+			'type' => 'text',
+			'title' => 'Button 2 Link',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'wp_kses',
+		),
+		array(
+			'id' => 'class',
+			'type' => 'text',
+			'title' => 'Class',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'wp_kses',
+		),
+		array(
+			'id' => 'title_color',
+			'type' => 'color',
+			'title' => 'Title Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'text_color',
+			'type' => 'color',
+			'title' => 'Text Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'button_color',
+			'type' => 'color',
+			'title' => 'Button Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'button_text_color',
+			'type' => 'color',
+			'title' => 'Button Text Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'button_hover_color',
+			'type' => 'color',
+			'title' => 'Button Hover Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'button_hover_text_color',
+			'type' => 'color',
+			'title' => 'Button Hover Text Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'button2_color',
+			'type' => 'color',
+			'title' => '2nd Button Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'button2_text_color',
+			'type' => 'color',
+			'title' => '2nd Button Text Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'button2_hover_color',
+			'type' => 'color',
+			'title' => '2nd Button Hover Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'button2_hover_text_color',
+			'type' => 'color',
+			'title' => '2nd Button Hover Text Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'bg_color',
+			'type' => 'color',
+			'title' => 'Background Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'bg_o_color',
+			'type' => 'color',
+			'title' => 'Background Overlay Color',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'sanitize_hex_color',
+		),
+		array(
+			'id' => 'bg_o_opacity',
+			'type' => 'select',
+			'title' => 'Background Overlay opacity',
+			'des' => '',
+			'class' => '',
+			'value' => '',
+			'choices' => '',
+			'sanitize' => 'esc_attr',
+			'choices' => array(
+				array('title' => '0.1', 'value' => '0.1'),
+				array('title' => '0.2', 'value' => '0.2'),
+				array('title' => '0.3', 'value' => '0.3'),
+				array('title' => '0.4', 'value' => '0.4'),
+				array('title' => '0.5', 'value' => '0.5'),
+				array('title' => '0.6', 'value' => '0.6'),
+				array('title' => '0.7', 'value' => '0.7'),
+				array('title' => '0.8', 'value' => '0.8'),
+				array('title' => '0.9', 'value' => '0.9'),
+			),
+		),
+	),
+);
+$mb_fields[] = array(
+	'id' => 'dot_nav_tt',
+	'type' => 'select',
+	'title' => 'Enable Dot Nav',
+	'des' => '',
+	'class' => '',
+	'value' => '',
+	'choices' => array(
+		array('title' => 'Yes', 'value' => 'yes'),
+		array('title' => 'No', 'value' => 'no'),
+	),
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'arrow_nav_tt',
+	'type' => 'select',
+	'title' => 'Enable Arrow Nav',
+	'des' => '',
+	'class' => '',
+	'value' => '',
+	'choices' => array(
+		array('title' => 'Yes', 'value' => 'yes'),
+		array('title' => 'No', 'value' => 'no'),
+	),
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'loop_tt',
+	'type' => 'select',
+	'title' => 'Loop',
+	'des' => '',
+	'class' => '',
+	'value' => '',
+	'choices' => array(
+		array('title' => 'Yes', 'value' => 'yes'),
+		array('title' => 'No', 'value' => 'no'),
+	),
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'autoplay_tt',
+	'type' => 'select',
+	'title' => 'Autoplay',
+	'des' => '',
+	'class' => '',
+	'value' => '',
+	'choices' => array(
+		array('title' => 'Yes', 'value' => 'yes'),
+		array('title' => 'No', 'value' => 'no'),
+	),
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'autoplay_speed_tt',
+	'type' => 'text',
+	'title' => 'Autoplay Speed',
+	'des' => '',
+	'class' => '',
+	'value' => '5000',
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'height',
+	'type' => 'text',
+	'title' => 'Slider Height',
+	'des' => '',
+	'class' => '',
+	'value' => '600px',
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'laptop_height',
+	'type' => 'text',
+	'title' => 'Laptop Height',
+	'des' => '',
+	'class' => '',
+	'value' => '500px',
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'tab_height',
+	'type' => 'text',
+	'title' => 'Tab Height',
+	'des' => '',
+	'class' => '',
+	'value' => '400px',
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'mobile_height',
+	'type' => 'text',
+	'title' => 'Mobile Height',
+	'des' => '',
+	'class' => '',
+	'value' => '300px',
+	'sanitize' => 'esc_attr',
+);
+$mb_fields[] = array(
+	'id' => 'content_width',
+	'type' => 'text',
+	'title' => 'Content Width',
+	'des' => '',
+	'class' => '',
+	'value' => '960px',
+	'sanitize' => 'esc_attr',
+);
+
+
+
+new tallytypes_metabox(array(
+	'id' => 'tt_slider',
+	'title' => 'Slider',
+	'post_type' => 'tt_slider',
+	'context' => 'normal',
+	'priority' => 'default',
+	'fields' => $mb_fields,
+));

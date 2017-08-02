@@ -1,0 +1,103 @@
+/**
+ * @package Tally Types
+ *
+ * Admin CSS Style of the plugin
+**/
+ 
+#toplevel_page_tally-types .wp-menu-image img,
+#menu-posts-tt_slider .wp-menu-image img,
+#menu-posts-tt_vcard .wp-menu-image img,
+#menu-posts-tt_testimonial .wp-menu-image img,
+#menu-posts-tt_grid .wp-menu-image img,
+#menu-posts-tt_service .wp-menu-image img,
+#menu-posts-tt_carousel .wp-menu-image img{
+	opacity:1;
+}
+
+
+.tallytypes_mb_field {
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom:dotted 1px #E8E4E4;
+}
+.tallytypes_mb_field label{
+	display:block;
+	font-weight:bold;
+	font-size:14px;
+	margin-bottom:3px;
+}
+.tallytypes_mb_field span.des{
+	display:block;
+	font-style:italic;
+	font-size:12px;
+	color:#666;
+	margin-top:3px;
+}
+.tallytypes_mb_field input,
+.tallytypes_mb_field textarea{
+	width:100%;
+}
+.tallytypes_mb_field select{
+	min-width:30%;
+}
+
+
+.ttmbf_group_item{
+	border: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding: 15px;
+    margin-top: 5px;
+	padding-bottom: 0;
+}
+.ttmbf_group_item_header{
+	background-color: #f1f1f1;
+    padding: 15px;
+    margin-top: -15px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.ttmbf_group_item_title{
+	
+}
+.ttmbf_group_item_delete{
+    float: right;
+    background-color: #F22;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-top: -2px;
+    text-transform: uppercase;
+    font-size: 10px;	
+}
+.ttmbf_group_item_delete:hover{
+	opacity:0.8;
+}
+.ttmbf_group_item_edit{
+    float: right;
+    background-color: #007504;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 16px 23px;
+    border-radius: 0px;
+    margin-top: -16px;
+    margin-right: -16px;
+    margin-bottom: -16px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-left: 20px;
+}
+.ttmbf_group_item_edit:hover{
+	opacity:0.8;
+}
+.ttmbf_group_item_content{
+	padding-top: 15px;
+	padding-bottom:15px;
+	display:none;
+}
+
+
+
+.tallytypes_mb_field input[type="button"]{
+    width: auto;
+}
